@@ -36,6 +36,7 @@
   background: linear-gradient(to left, #24243e, #302b63, #0f0c29);
 }
 
+/* estilos del login */
 .main__login {
   width: 100%;
   padding: 20px;
@@ -97,6 +98,7 @@
   position: relative;
   top: -200px;
   left: 10px;
+  transition: left 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .formulario__login-register form {
@@ -119,7 +121,7 @@
   margin-top: 20px;
   padding: 10px;
   border: none;
-  background: #f2f2f2;
+  background: #4b4949;
   font-size: 16px;
   outline: none;
 }
@@ -128,7 +130,7 @@
   margin-top: 40px;
   border: none;
   font-size: 14px;
-  background: #46a2fd;
+  background: #0059fc;
   color: white;
   cursor: pointer;
   outline: none;
@@ -137,6 +139,7 @@
   opacity: 1;
   display: block;
 }
+
 .formulario__register {
   display: none;
 }
