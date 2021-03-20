@@ -94,7 +94,11 @@
           <!-- login -->
           <form action="" class="formulario__login">
             <h2>inciciar sesíon</h2>
-            <input type="text" placeholder="correo electronico" />
+            <input
+              type="text"
+              id="emailInicio"
+              placeholder="correo electronico"
+            />
             <input type="password" placeholder="contraseña" />
             <a href="" class="d-block text-decoration-none">
               ¿olvidaste tu contraseña?</a
@@ -104,11 +108,17 @@
           <!-- registro -->
           <form action="" class="formulario__register">
             <h2>registrarse</h2>
-            <input type="text" id="" placeholder="Nombre Completo" />
+            <input type="text" id="name" placeholder="Nombre Completo" />
             <input type="text" id="email" placeholder="Correo Electronico" />
-            <input type="text" id="user" placeholder="usuario" />
+            <input type="text" id="users" placeholder="usuario" />
             <input type="password" id="password" placeholder="contraseña" />
-            <button>Registrarse</button>
+            <input
+              type="password"
+              id="password2"
+              placeholder="repetir contraseña"
+            />
+            <button type="submit">Registrarse</button>
+            <p class="warnings" id="warnings">hola</p>
           </form>
         </article>
       </section>

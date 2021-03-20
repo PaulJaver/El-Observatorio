@@ -93,6 +93,7 @@
 .formulario__login-register {
   display: flex;
   align-items: center;
+
   width: 100%;
   max-width: 380px;
   position: relative;
@@ -124,6 +125,7 @@
   background: #4b4949;
   font-size: 16px;
   outline: none;
+  color: white;
 }
 .formulario__login-register form button {
   padding: 10px 40px;
@@ -140,8 +142,15 @@
   display: block;
 }
 
-.formulario__register {
+.formulario__login-register .formulario__register {
   display: none;
+  padding: 45px 20px;
+}
+.warnings {
+  width: 200px;
+  text-align: center;
+  margin: auto;
+  padding-top: 20px;
 }
 /*  responsive de login */
 @media screen and (max-width: 850px) {
