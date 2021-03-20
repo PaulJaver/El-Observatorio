@@ -106,24 +106,52 @@
             <button>entrar</button>
           </form>
           <!-- registro -->
-          <form action="" class="formulario__register">
+          <form action="" id="form" class="formulario__register">
             <h2>registrarse</h2>
-            <input type="text" id="name" placeholder="Nombre Completo" />
-            <input type="text" id="email" placeholder="Correo Electronico" />
-            <input type="text" id="users" placeholder="usuario" />
-            <input type="password" id="password" placeholder="contraseña" />
-            <input
-              type="password"
-              id="password2"
-              placeholder="repetir contraseña"
-            />
+            <div class="form-control">
+              <input
+                type="text"
+                id="nameRegister"
+                placeholder="Nombre Completo"
+              />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+            <div class="form-control">
+              <input type="text" id="email" placeholder="Correo Electronico" />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+            <div class="form-control">
+              <input type="text" id="username" placeholder="usuario" />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+            <div class="form-control">
+              <input type="password" id="password" placeholder="contraseña" />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+            <div class="form-control">
+              <input
+                type="password"
+                id="password2"
+                placeholder="repetir contraseña"
+              />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
             <button type="submit">Registrarse</button>
-            <p class="warnings" id="warnings">hola</p>
           </form>
         </article>
       </section>
     </main>
-    <footer class="headFoot py-5 mt-5">
+    <footer class="headFoot py-5 footer-login">
       <section class="py-4 text-center text-light">
         <article class="row mx-0">
           <div class="col-sm-12 col-md-12 col-lg-4 py-3"></div>
@@ -152,5 +180,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/app.js"></script>
+    <script src="js/validacionesLogin.js"></script>
   </body>
 </html>
