@@ -12,7 +12,7 @@ form.addEventListener("submit", (e) => {
 });
 
 function checkInputs() {
-  // trim to remove the whitespaces
+  // borramos los espacios vacios de adelante
   const usuarioValue = usuario.value.trim();
   const emailValue = email.value.trim();
   const passwordValue = password.value.trim();
