@@ -80,9 +80,9 @@ function dibujarTabla(listaContenido) {
     let starColor = "";
 
     if (listaContenido[i].destacar) {
-      starColor = "color8";
+      starColor = "fas fa-star color8";
     } else {
-      starColor = "color1";
+      starColor = "far fa-star color1";
     }
 
     filaItem = `
@@ -105,7 +105,7 @@ function dibujarTabla(listaContenido) {
     </td>
     <td id='destacarPadre'>
       <button class="btn" onclick="destacarItem(this)" 
-      id="${listaContenido[i].codigo}"><i class="far fa-star ${starColor}" id='destacar${listaContenido[i].codigo}'></i></button>
+      id="${listaContenido[i].codigo}"><i class="${starColor}" id='destacar${listaContenido[i].codigo}'></i></button>
      </td>
    </tr>`;
 
