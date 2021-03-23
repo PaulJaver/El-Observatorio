@@ -5,6 +5,10 @@
   .banner{
     max-height: 750px;
   }
+
+  .poster_img {
+      max-width: 5rem;
+  }
   
   .slide{
     max-height: 250px;

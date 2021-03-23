@@ -1,4 +1,6 @@
-import movies from '/js/movies-db.js';
+/* import movies from '/js/movies-db.js'; */
+
+let movies = JSON.parse(localStorage.getItem("listaItemKey"));
 
 const queryString  = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -7,7 +9,7 @@ let pelicula = {};
 
 for(let i = 0; i < movies.length; i++) {
 
-    if(movies[i].title === urlParams.get('movie')) {
+    if(movies[i].nombre === urlParams.get('movie')) {
         pelicula = movies[i];
     }
 
@@ -24,4 +26,4 @@ const movieDetailContainer = (document.getElementById(
   
   const movieDescription = (document.getElementById(
     "movie_description"
-  ).innerHTML = pelicula.description);
+  ).innerHTML = pelicula.descripcion);

@@ -1,72 +1,70 @@
-import { Contenido } from './class.js'
+import { Contenido } from "./class.js";
 
 let listaItem = [];
-const modalAgregar = new bootstrap.Modal(document.getElementById('modalAgregar'));
+const modalAgregar = new bootstrap.Modal(
+  document.getElementById("modalAgregar")
+);
 //modificarItem = false => AGREGA
 //modificarItem = true => MODIFICA
 let modificarItem = false;
 //destacar = true => marca
 //destaca = false => desmarca
-let destacar = true
+let destacar = true;
 
-let btnAgrgar = document.getElementById('btnAgregar');
-btnAgrgar.addEventListener('click', function () {
+let btnAgrgar = document.getElementById("btnAgregar");
+btnAgrgar.addEventListener("click", function () {
   limpiarForm();
   modalAgregar.show();
-})
+});
 
 leerDatos();
 
-
 //Create
 window.agregarItem = function () {
+  let codigo = document.getElementById("codigo").value;
+  let nombre = document.getElementById("nombre").value;
+  let categoria = document.getElementById("categoria").value;
+  let descripcion = document.getElementById("descripcion").value;
+  let imagen = document.getElementById("imagen").value;
+  let bg_img = document.getElementById("bg_img").value;
+  let title_img = document.getElementById("title_img").value;
 
-  let codigo = document.getElementById('codigo').value;
-  let nombre = document.getElementById('nombre').value;
-  let categoria = document.getElementById('categoria').value;
-  let descripcion = document.getElementById('descripcion').value;
-  let imagen = document.getElementById('imagen').value;
-
-  let nuevoItem = new Contenido(codigo, nombre, categoria, descripcion, imagen);
+  let nuevoItem = new Contenido(codigo, nombre, categoria, descripcion, imagen, bg_img);
 
   listaItem.push(nuevoItem);
   console.log(listaItem);
 
-  localStorage.setItem('listaItemKey', JSON.stringify(listaItem));
+  localStorage.setItem("listaItemKey", JSON.stringify(listaItem));
 
   limpiarForm();
 
-  Swal.fire(
-    'Realizado!',
-    'El item fue agregado correctamente',
-    'success'
-  )
+  Swal.fire("Realizado!", "El item fue agregado correctamente", "success");
   leerDatos();
   modalAgregar.hide();
-}
+};
 
 function limpiarForm() {
-  document.getElementById('formItem').reset();
+  document.getElementById("formItem").reset();
   modificarItem = false;
 }
 //Read
 function leerDatos() {
   if (localStorage.length > 0) {
-    let _listaItem = JSON.parse(localStorage.getItem('listaItemKey'));
+    let _listaItem = JSON.parse(localStorage.getItem("listaItemKey"));
 
     if (listaItem.length === 0) {
-      listaItem = _listaItem
+      listaItem = _listaItem;
     }
-    dibujarTabla(_listaItem)
+    dibujarTabla(_listaItem);
   }
 }
 
 function dibujarTabla(listaContenido) {
   console.log(listaContenido);
 
-  let tCuerpo = document.getElementById('tablaItem')
-  let filaItem = '';
-  tCuerpo.innerHTML = '';
+  let tCuerpo = document.getElementById("tablaItem");
+  let filaItem = "";
+  tCuerpo.innerHTML = "";
 
   for (let i in listaContenido) {
     filaItem = `
@@ -75,7 +73,7 @@ function dibujarTabla(listaContenido) {
     <td>${listaContenido[i].nombre}</td>
     <td>${listaContenido[i].categoria}</td>
     <td>${listaContenido[i].descripcion}</td>
-    <td>${listaContenido[i].imagen}</td>
+    <td> <img src="${listaContenido[i].imagen}" alt="poster-img" class='poster_img' /> </td>
     <td>
       <button class="btn" onclick='prepararItem(this)' id='${listaContenido[i].codigo}'><i class="far fa-edit color1"></i></button>
       <button class="btn" onclick="eliminarItem(this)" 
@@ -91,108 +89,103 @@ function dibujarTabla(listaContenido) {
       <button class="btn" onclick="destacarItem(this)" 
       id="${listaContenido[i].codigo}"><i class="far fa-star color1" id='destacar'></i></button>
      </td>
-   </tr>`
+   </tr>`;
 
-   tCuerpo.innerHTML += filaItem;
+    tCuerpo.innerHTML += filaItem;
   }
 }
 
-window.eliminarItem = function(boton){
+window.eliminarItem = function (boton) {
   // console.log(boton.id);
   Swal.fire({
-    title: '¿Estas seguro de eliminar este item?',
+    title: "¿Estas seguro de eliminar este item?",
     text: "Una vez borrado no se podrá recuperar!",
-    icon: 'warning',
+    icon: "warning",
     showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Si',
-    cancelButtonText: 'Cancelar'
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Si",
+    cancelButtonText: "Cancelar",
   }).then((result) => {
     if (result.isConfirmed) {
-
-      let itemsFiltrados = listaItem.filter(function(producto){
+      let itemsFiltrados = listaItem.filter(function (producto) {
         return producto.codigo != boton.id;
-      })
-console.log(itemsFiltrados);
-      localStorage.setItem('listaItemKey', JSON.stringify(itemsFiltrados));
+      });
+      console.log(itemsFiltrados);
+      localStorage.setItem("listaItemKey", JSON.stringify(itemsFiltrados));
 
       listaItem = itemsFiltrados;
 
       leerDatos();
 
-      Swal.fire(
-          'Borrado!',
-          'El item seleccionado fue borrado',
-          'success'
-        )
+      Swal.fire("Borrado!", "El item seleccionado fue borrado", "success");
     }
-  })
-}
+  });
+};
 
-window.prepararItem = function (boton){
-   console.log(boton.id);
+window.prepararItem = function (boton) {
+  console.log(boton.id);
 
-   let itemEncontrado = listaItem.find(function(producto){
-     return producto.codigo === boton.id;
-   })
-   console.log(itemEncontrado);
-document.getElementById('codigo').value = itemEncontrado.codigo;
-document.getElementById('nombre').value = itemEncontrado.nombre;
-document.getElementById('categoria').value = itemEncontrado.categoria;
-document.getElementById('descripcion').value = itemEncontrado.descripcion;
-document.getElementById('imagen').value = itemEncontrado.imagen;
+  let itemEncontrado = listaItem.find(function (producto) {
+    return producto.codigo === boton.id;
+  });
+  console.log(itemEncontrado);
+  document.getElementById("codigo").value = itemEncontrado.codigo;
+  document.getElementById("nombre").value = itemEncontrado.nombre;
+  document.getElementById("categoria").value = itemEncontrado.categoria;
+  document.getElementById("descripcion").value = itemEncontrado.descripcion;
+  document.getElementById("imagen").value = itemEncontrado.imagen;
+  document.getElementById("bg_img").value = itemEncontrado.bg_img;
+  document.getElementById("title_img").value = itemEncontrado.title_img;
 
-modificarItem = true;
+  modificarItem = true;
 
-modalAgregar.show();
-}
+  modalAgregar.show();
+};
 
-window.guardarItem = function (event){
-    event.preventDefault();
-    console.log('cual ejecutar');
-    
-    if(modificarItem){
-      editarItemExistente();
+window.guardarItem = function (event) {
+  event.preventDefault();
+  console.log("cual ejecutar");
 
-    }else{
-      agregarItem();
-    }
-}
+  if (modificarItem) {
+    editarItemExistente();
+  } else {
+    agregarItem();
+  }
+};
 
 function editarItemExistente() {
-  console.log('desde la funcion editar');
+  console.log("desde la funcion editar");
   //validar
 
-  let codigo = document.getElementById('codigo').value;
-  let nombre = document.getElementById('nombre').value;
-  let categoria = document.getElementById('categoria').value;
-  let descripcion = document.getElementById('descripcion').value;
-  let imagen = document.getElementById('imagen').value;
+  let codigo = document.getElementById("codigo").value;
+  let nombre = document.getElementById("nombre").value;
+  let categoria = document.getElementById("categoria").value;
+  let descripcion = document.getElementById("descripcion").value;
+  let imagen = document.getElementById("imagen").value;
+  let bg_img = document.getElementById("bg_img").value;
+  let title_img = document.getElementById("title_img").value;
 
   limpiarForm();
 
-  for (let i in listaItem){
-  if(listaItem[i].codigo === codigo){
-    listaItem[i].nombre = nombre;
-    listaItem[i].categoria = categoria;
-    listaItem[i].descripcion = descripcion;
-    listaItem[i].imagen = imagen;
+  for (let i in listaItem) {
+    if (listaItem[i].codigo === codigo) {
+      listaItem[i].nombre = nombre;
+      listaItem[i].categoria = categoria;
+      listaItem[i].descripcion = descripcion;
+      listaItem[i].imagen = imagen;
+      listaItem[i].bg_img = bg_img;
+      listaItem[i].title_img = title_img;
     }
   }
 
-  localStorage.setItem('listaItemKey', JSON.stringify(listaItem));
+  localStorage.setItem("listaItemKey", JSON.stringify(listaItem));
 
   leerDatos();
 
-  Swal.fire(
-    'Realizado!',
-    'El item fue modificado correctamente',
-    'success'
-  )
- 
-  modalAgregar.hide();
+  Swal.fire("Realizado!", "El item fue modificado correctamente", "success");
 
+  modalAgregar.hide();
 }
 
 // window.destacarItem = function(boton){
@@ -207,31 +200,3 @@ function editarItemExistente() {
 //   document.getElementById('destacar').className = 'far fa-star color1';
 // }
 // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
