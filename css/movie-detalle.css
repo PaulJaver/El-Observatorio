@@ -48,6 +48,7 @@
 }
 
 .btn-play {
+    text-decoration: none;
     font-size: 18px;
     border-radius: 1vh; 
     min-width: 6rem;
@@ -70,6 +71,7 @@
 }
 
 .add-btn{
+    text-decoration: none;
     width: 3rem;
     height: 3rem;
     max-width: 3rem;
