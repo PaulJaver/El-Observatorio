@@ -1,13 +1,12 @@
 import { Contenido } from './class.js'
+import { Destacada } from './class.js'
 
 let listaItem = [];
+let destacada = listaItem.slice();
 const modalAgregar = new bootstrap.Modal(document.getElementById('modalAgregar'));
 //modificarItem = false => AGREGA
 //modificarItem = true => MODIFICA
 let modificarItem = false;
-//destacar = true => marca
-//destaca = false => desmarca
-let destacar = true
 
 let btnAgrgar = document.getElementById('btnAgregar');
 btnAgrgar.addEventListener('click', function () {
@@ -62,7 +61,7 @@ function leerDatos() {
 }
 
 function dibujarTabla(listaContenido) {
-  console.log(listaContenido);
+  // console.log(listaContenido);
 
   let tCuerpo = document.getElementById('tablaItem')
   let filaItem = '';
@@ -88,8 +87,8 @@ function dibujarTabla(listaContenido) {
      </div>
     </td>
     <td id='destacarPadre'>
-      <button class="btn" onclick="destacarItem(this)" 
-      id="${listaContenido[i].codigo}"><i class="far fa-star color1" id='destacar'></i></button>
+      <button class="btn" onclick="" 
+      id="${listaContenido[i].codigo}"><i class="far fa-star color1" id='destacar' onclick="seleccionar(this)"></i></button>
      </td>
    </tr>`
 
@@ -150,7 +149,7 @@ modalAgregar.show();
 
 window.guardarItem = function (event){
     event.preventDefault();
-    console.log('cual ejecutar');
+    // console.log('cual ejecutar');
     
     if(modificarItem){
       editarItemExistente();
@@ -195,43 +194,15 @@ function editarItemExistente() {
 
 }
 
-// window.destacarItem = function(boton){
+window.seleccionar = function(boton){
+  if (boton.style.color == ''){
+    boton.style.color =' #fab005';  
+  
+  
+  }else{
+    boton.style.color = '';
+  
+  }
+  }
 
-//   let itemDestacado = listaItem.find(function(producto){
-//     return producto.codigo === boton.id;
-//   });
-//   destacar = true
-//   if(destacar = true){
-//   document.getElementById('destacar').className = 'fas fa-star color8';
-// }else{
-//   document.getElementById('destacar').className = 'far fa-star color1';
-// }
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
