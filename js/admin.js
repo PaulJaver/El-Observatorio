@@ -5,6 +5,9 @@ const modalAgregar = new bootstrap.Modal(document.getElementById('modalAgregar')
 //modificarItem = false => AGREGA
 //modificarItem = true => MODIFICA
 let modificarItem = false;
+//destacar = true => marca
+//destaca = false => desmarca
+let destacar = true
 
 let btnAgrgar = document.getElementById('btnAgregar');
 btnAgrgar.addEventListener('click', function () {
@@ -13,6 +16,7 @@ btnAgrgar.addEventListener('click', function () {
 })
 
 leerDatos();
+
 
 //Create
 window.agregarItem = function () {
@@ -73,9 +77,9 @@ function dibujarTabla(listaContenido) {
     <td>${listaContenido[i].descripcion}</td>
     <td>${listaContenido[i].imagen}</td>
     <td>
-      <button class="btn" onclick='prepararItem(this)' id='${listaContenido[i].codigo}'><i class="far fa-edit"></i></button>
+      <button class="btn" onclick='prepararItem(this)' id='${listaContenido[i].codigo}'><i class="far fa-edit color1"></i></button>
       <button class="btn" onclick="eliminarItem(this)" 
-      id="${listaContenido[i].codigo}"><i class="far fa-trash-alt"></i></button>
+      id="${listaContenido[i].codigo}"><i class="far fa-trash-alt color1"></i></button>
     </td>
     <td>
       <div class="form-check form-switch">
@@ -83,9 +87,9 @@ function dibujarTabla(listaContenido) {
         <label class="form-check-label" for="flexSwitchCheckDefault"t</label>
      </div>
     </td>
-    <td>
-      <button class="btn" onclick="" 
-      id=""><i class="far fa-star"></i></button>
+    <td id='destacarPadre'>
+      <button class="btn" onclick="destacarItem(this)" 
+      id="${listaContenido[i].codigo}"><i class="${destacar}" id='destacar'></i></button>
      </td>
    </tr>`
 
@@ -191,12 +195,18 @@ function editarItemExistente() {
 
 }
 
+// window.destacarItem = function(boton){
 
-
-
-
-
-
+//   let itemDestacado = listaItem.find(function(producto){
+//     return producto.codigo === boton.id;
+//   });
+//   destacar = true
+//   if(destacar = true){
+//   document.getElementById('destacar').className = 'fas fa-star color8';
+// }else{
+//   document.getElementById('destacar').className = 'far fa-star color1';
+// }
+// }
 
 
 

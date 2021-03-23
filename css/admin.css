@@ -32,7 +32,9 @@
   background: -webkit-linear-gradient(to left, #24243e, #302b63, #0f0c29); 
   background: linear-gradient(to left, #24243e, #302b63, #0f0c29); 
     }
-  
+ .color8{
+     color:#fab005 ;
+ }  
 .color1{
     color:#f9f9f9 ;
 }
