@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pagina de streaming de series y peliculas"
+    />
+    <meta
+      name="keywords"
+      content="streaming, series, peliculas, shows, documentales"
+    />
+    <meta
+      name="Author"
+      content="Pablo Julian Alonso Olivera, Tulio Moya, David Diaz, Benjamin Draniczarek, Giselle Aguilar Barrionuevo"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="css\style.css" />
+    <link rel="stylesheet" href="css\movie-detalle.css" />
+    <link rel="shorcut icon" href="img\biona logo.png" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/2ee0d9adf3.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>El Critico</title>
+  </head>
+
+  <body class="footfix">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark headFoot">
+        <div class="container">
+          <a class="navbar-brand" href="#">El Critico</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html"
+                  >Inicio</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login.html">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login.html">Registro</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    
+    <main class="container movie-main-img p-5" id="movie_detail_container">
+      
+      <div class="movie-data">
+        <img id="movie_title_img" class="movie-title-img movie-desc-section" alt="movie-title"/>
+
+        <div class="d-flex movie-desc-section">
+          <div class="bg-white d-flex btn-play flex-center control-btn">
+            <span class="fs-2">&rtrif;</span>
+            <p class="fw-bolder clear-attr">PLAY</p>
+          </div>
+
+          <div class="bg-dark flex-center add-btn rounded-circle">
+            <span class="text-white">&plus;</span>
+          </div>
+        </div>
+
+        <h3 id="movie_description" class="text-white w-50 movie-description movie-desc-section">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem nihil,
+          delectus debitis omnis totam cum itaque eligendi enim. Laboriosam sed
+          sunt cupiditate iste quia! Veniam ipsam sunt dolorum quia facere
+          expedita, reprehenderit laboriosam fugiat placeat accusantium
+          cupiditate deleniti saepe, rem blanditiis rerum et consectetur numquam
+          temporibus sit delectus eos dolor.
+        </h3>
+      </div>
+    
+      <div class="gradient"></div>
+    </main>
+
+    <footer class="headFoot py-5">
+      <section class="py-4 text-center text-light">
+        <article class="row mx-0">
+          <div class="col-sm-12 col-md-12 col-lg-4 py-3"></div>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <h5>Online desde 2021</h5>
+            <p>&copy; El Critico. Todos los derechos reservados.</p>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <h5>Seguinos en nuestras redes sociales:</h5>
+            <a href="404.html" target="_blank" class="text-info mx-2"
+              ><i class="fab fa-facebook fa-3x"></i
+            ></a>
+            <a href="404.html" target="_blank" class="text-light mx-2"
+              ><i class="fab fa-instagram-square fa-3x"></i
+            ></a>
+            <a href="404.html" target="_blank" class="text-primary mx-2"
+              ><i class="fab fa-twitter fa-3x"></i
+            ></a>
+          </div>
+        </article>
+      </section>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/app.js"></script>
+    <script  src="js/movies-db.js" defer type="module"></script>
+    <script  src="js/movie-detalle.js" defer type="module"></script>
+  </body>
+</html>
