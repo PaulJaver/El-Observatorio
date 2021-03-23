@@ -29,7 +29,17 @@ window.agregarItem = function () {
   let bg_img = document.getElementById("bg_img").value;
   let title_img = document.getElementById("title_img").value;
 
-  let nuevoItem = new Contenido(codigo, nombre, categoria, descripcion, imagen, bg_img);
+  let nuevoItem = new Contenido(
+    codigo,
+    nombre,
+    categoria,
+    descripcion,
+    imagen,
+    bg_img,
+    title_img,
+    true,
+    true
+  );
 
   listaItem.push(nuevoItem);
   console.log(listaItem);
@@ -67,6 +77,14 @@ function dibujarTabla(listaContenido) {
   tCuerpo.innerHTML = "";
 
   for (let i in listaContenido) {
+    let starColor = "";
+
+    if (listaContenido[i].destacar) {
+      starColor = "color8";
+    } else {
+      starColor = "color1";
+    }
+
     filaItem = `
     <tr>
     <th scope="row">${listaContenido[i].codigo}</th>
@@ -87,7 +105,7 @@ function dibujarTabla(listaContenido) {
     </td>
     <td id='destacarPadre'>
       <button class="btn" onclick="destacarItem(this)" 
-      id="${listaContenido[i].codigo}"><i class="far fa-star color1" id='destacar'></i></button>
+      id="${listaContenido[i].codigo}"><i class="far fa-star ${starColor}" id='destacar${listaContenido[i].codigo}'></i></button>
      </td>
    </tr>`;
 
@@ -188,32 +206,42 @@ function editarItemExistente() {
   modalAgregar.hide();
 }
 
-// window.destacarItem = function(boton){
+window.destacarItem = function (boton) {
+  let itemDestacado = listaItem.find(function (producto) {
+    return producto.codigo === boton.id;
+  });
 
-//   let itemDestacado = listaItem.find(function(producto){
-//     return producto.codigo === boton.id;
-//   });
-//   destacar = true
-//   if(destacar = true){
-//   document.getElementById('destacar').className = 'fas fa-star color8';
-// }else{
-//   document.getElementById('destacar').className = 'far fa-star color1';
-// }
-// }
+  console.log(itemDestacado);
 
+  itemDestacado.destacar = !itemDestacado.destacar;
 
+  const listaNueva = [];
 
+  listaItem.forEach((item, idx) => {
+    if (item.codigo === itemDestacado.codigo) {
+      listaNueva.push(itemDestacado);
+    } else {
+      listaNueva.push(item);
+    }
+  });
 
+  localStorage.setItem("listaItemKey", JSON.stringify(listaNueva));
 
-
-
+  if (itemDestacado.destacar) {
+    document.getElementById(`destacar${itemDestacado.codigo}`).className =
+      "fas fa-star color8";
+  } else {
+    document.getElementById(`destacar${itemDestacado.codigo}`).className =
+      "far fa-star color1";
+  }
+};
 
 /* CONSULTAS */
-const tablaConsultas = document.getElementById('tablaConsultas');
+const tablaConsultas = document.getElementById("tablaConsultas");
 
-const arrayConsultas = JSON.parse(localStorage.getItem('listaConsultas'))
+const arrayConsultas = JSON.parse(localStorage.getItem("listaConsultas"));
 
-console.log(arrayConsultas)
+console.log(arrayConsultas);
 
 for (let i in arrayConsultas) {
   tablaConsultas.innerHTML += `

@@ -6,12 +6,14 @@ let movies = JSON.parse(localStorage.getItem("listaItemKey"));
 let moviesList = document.getElementById("slider-item");
 
 for (let i = 0; i < movies.length; i++) {
-  moviesList.innerHTML += `<div class="col">
+  if (movies[i].destacar) {
+    moviesList.innerHTML += `<div class="col">
 
-    <a href="detalle.html?movie=${movies[i].nombre}">
+  <a href="detalle.html?movie=${movies[i].nombre}">
 
-    <img src="${movies[i].imagen}" alt="" class="slide">
+  <img src="${movies[i].imagen}" alt="" class="slide">
 
-    </a> 
+  </a> 
 </div>`;
+  }
 }
