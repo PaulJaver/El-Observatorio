@@ -1,0 +1,82 @@
+*{
+    font-family: 'Titillium Web', sans-serif;
+  }
+  
+  .banner{
+    max-height: 750px;
+  }
+  
+  .slide{
+    max-height: 250px;
+  }
+  
+  .left{
+    position: relative;
+    right: 200px; bottom: 130px;
+  }
+  .right{
+    position: relative;
+    left: 200px; bottom: 130px;
+  }
+  
+  .headFoot{background: #0F2027;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to left, #2C5364, #203A43, #0F2027);  
+      background: linear-gradient(to left, #2C5364, #203A43, #0F2027); 
+      }
+     
+  .footfix{
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: #0f0c29;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #24243e, #302b63, #0f0c29); 
+  background: linear-gradient(to left, #24243e, #302b63, #0f0c29); 
+    }
+ .color8{
+     color:#fab005 ;
+ }  
+.color1{
+    color:#f9f9f9 ;
+}
+.color2{
+    color:#31343e ;
+}
+.color3{
+    color:#1a1d29 ;
+}
+.color4{
+    color: #040714;
+}
+.color5{
+    color: #090b13;
+}
+
+.bg1{
+    background-color:#f9f9f9 ;
+}
+.bg2{
+    background-color:#31343e ;
+}
+.bg3{
+    background-color:#1a1d29 ;
+}
+.bg4{
+    background-color:#040714 ;
+}
+.bg5{
+    background-color:#090b13 ;
+}
+
+
+
+
+
+
+
+ 
+/* 
+Titulos, subtitulos y parrafos: #f9f9f9
+Inputs: #31343e
+Iniciar sesión: #1a1d29
+Fondo: #040714
+Navbar: #090b13 */
