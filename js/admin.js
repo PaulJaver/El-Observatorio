@@ -200,3 +200,27 @@ function editarItemExistente() {
 //   document.getElementById('destacar').className = 'far fa-star color1';
 // }
 // }
+
+
+
+
+
+
+
+
+/* CONSULTAS */
+const tablaConsultas = document.getElementById('tablaConsultas');
+
+const arrayConsultas = JSON.parse(localStorage.getItem('listaConsultas'))
+
+console.log(arrayConsultas)
+
+for (let i in arrayConsultas) {
+  tablaConsultas.innerHTML += `
+  <tr>
+  <td>${arrayConsultas[i].usuario}</td>
+  <td>${arrayConsultas[i].email}</td>
+  <td>${arrayConsultas[i].consulta}</td>
+  </td>
+ </tr>`;
+}
