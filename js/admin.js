@@ -89,7 +89,7 @@ function dibujarTabla(listaContenido) {
     </td>
     <td id='destacarPadre'>
       <button class="btn" onclick="destacarItem(this)" 
-      id="${listaContenido[i].codigo}"><i class="${destacar}" id='destacar'></i></button>
+      id="${listaContenido[i].codigo}"><i class="far fa-star color1" id='destacar'></i></button>
      </td>
    </tr>`
 
